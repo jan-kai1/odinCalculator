@@ -1,7 +1,19 @@
 const add = (num1, num2) => (Number(num1) + Number(num2));
 const subtract = (num1, num2) => (num1 - num2);
 const multiply = (num1, num2) => num1 * num2;
-const divide = (num1, num2) => num1/num2;
+const divide = (num1, num2) => 
+{   
+    if (num2 == 0)
+    {
+        return "DONT DIVIDE BY 0"
+    }
+    else
+    {
+        return (num1/num2);
+    }
+    
+
+}
 const operate = (operator,num1,num2) =>
     {
         if (operator == "add")
@@ -35,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function()
     let currentNumber = "";
     let prevNumber = 0;
     let prevOperator = "";
-
+    let prevResult = 0;
     numbersList = document.querySelectorAll(".calcButton")
     numbersList.forEach(function(number)
     {
@@ -61,7 +73,16 @@ document.addEventListener("DOMContentLoaded", function()
             if (calcInProgress == false)
             {
                 //if not done move current number to prevNumber
-                prevNumber = Number(currentNumber);
+                if (prevNumber != 0)
+                {
+                    prevNumber = operate(prevOperator, prevNumber, Number(currentNumber));
+                    //make a case where u re click operator without input value, 
+                    // check value of currentNumber?
+                    
+                }
+                else{
+                    prevNumber = Number(currentNumber);
+                }
                 currentNumber = ""
                 //set prevOperator to the button pressed
                 prevOperator = operatorButtons[i].getAttribute('value');
@@ -93,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function()
         prevNumber = operate(prevOperator, prevNumber, Number(currentNumber));
         //
         numberDisplay.textContent = prevNumber.toString();
+        prevResult = prevNumber;
+        // prevNumber =0;
         calcInProgress = false;
       
         currentNumber = "";
@@ -102,6 +125,16 @@ document.addEventListener("DOMContentLoaded", function()
     //reset button
     //TODO
     resetButton = document.querySelector("#reset")
+    resetButton.addEventListener("click", function()
+    {
+        prevNumber =0;
+        numberDisplay.textContent = 0;
+        calcInProgress = false;
+        currentNumber = "";
+        prevOperator = "";
+
+        
+    });
 
     
  
