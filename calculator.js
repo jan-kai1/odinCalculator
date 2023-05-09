@@ -75,14 +75,24 @@ document.addEventListener("DOMContentLoaded", function()
                 //if not done move current number to prevNumber
                 if (prevNumber != 0)
                 {
-                    prevNumber = operate(prevOperator, prevNumber, Number(currentNumber));
+
+
+                    if (currentNumber != "")
+                    {
+                        prevNumber = operate(prevOperator, prevNumber, Number(currentNumber));
+
+                    }
+                   
+                    
                     //make a case where u re click operator without input value, 
                     // check value of currentNumber?
                     
                 }
-                else{
+                else
+                {
                     prevNumber = Number(currentNumber);
                 }
+                //this leads to problem when double clicking operators
                 currentNumber = ""
                 //set prevOperator to the button pressed
                 prevOperator = operatorButtons[i].getAttribute('value');
@@ -95,11 +105,21 @@ document.addEventListener("DOMContentLoaded", function()
            
             {
                 //execute previous operation
-                prevNumber = operate(prevOperator, prevNumber, Number(currentNumber));
-                numberDisplay.textContent = prevNumber.toString();
-                currentNumber = "";
-                //change prevOperator to current button
-                prevOperator = operatorButtons[i].getAttribute('value');
+                if (currentNumber == "")
+                {
+                    prevOperator = operatorButtons[i].getAttribute('value');
+                }
+                else
+                {
+                    prevNumber = operate(prevOperator, prevNumber, Number(currentNumber));
+                    numberDisplay.textContent = prevNumber.toString();
+                    currentNumber = "";
+                    //change prevOperator to current button
+                    prevOperator = operatorButtons[i].getAttribute('value');
+                }
+                //TODO FIX THIS, RETURNS PREV NUMBER TO 0 if operator is double pressed
+                console.log(`prevNumber before is ${prevNumber} currentNumber is ${currentNumber}`)
+               
                 console.log(prevNumber)
             }
 
