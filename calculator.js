@@ -2,6 +2,7 @@ const add = (num1, num2) => (Number(num1) + Number(num2));
 const subtract = (num1, num2) => (num1 - num2);
 const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) => 
+//TODO NEGATIVE AND DECIMALS
 {   
     if (num2 == 0)
     {
@@ -143,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function()
    
 
     //reset button
-    //TODO
+    
     resetButton = document.querySelector("#reset")
     resetButton.addEventListener("click", function()
     {
@@ -156,10 +157,24 @@ document.addEventListener("DOMContentLoaded", function()
         
     });
 
-    
- 
+    //decimal button
+    decButton = document.querySelector(".decimalButton");
+    decButton.addEventListener("click", function()
+    {
+        currentNumber = currentNumber.concat(decButton.textContent);
+        numberDisplay.textContent = currentNumber;
 
 
+    });
+
+    negButton = document.querySelector(".negativeButton")
+    negButton.addEventListener("click", function()
+    {
+        currentNumber = negButton.textContent.concat(currentNumber);
+        numberDisplay.textContent = currentNumber;
+
+
+    })
 
 
 

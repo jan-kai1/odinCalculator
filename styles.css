@@ -22,7 +22,7 @@ body{
 }
 .container{
     height: auto;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 100%;
     flex-direction: column;
     display:inline-flex;
@@ -33,7 +33,7 @@ body{
     padding : 20px;
     display: inline-flex;
     justify-content: center;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     flex:2;
    
 
@@ -42,7 +42,7 @@ body{
     display : flex;
     width:50vh;
     height: 150vh;
-    border : 3px solid blue;
+    /* border : 3px solid blue; */
     justify-content: center;
     flex-direction: column;
     /* flex :2; */
@@ -54,7 +54,7 @@ body{
     align-items: center;
     width:100%;
     height:auto;
-    border: 2px solid red;
+    /* border: 2px solid red; */
    
 }
 .calcButton{
@@ -66,12 +66,12 @@ body{
     
     box-sizing: border-box;
     padding: 5px;
-    border: 2px solid red;
+    border: 2px solid black;
     color:black;
     flex:1;
 }
 .display{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width:100%;
     height:5vh;
     margin-bottom: -160px;
@@ -87,7 +87,7 @@ body{
 }
 .operators{
     width:10vh;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +99,7 @@ button{
     color:black;
     width:10vh;
     height: 10vh;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 .miscButton{
     width:10vh;
@@ -110,8 +110,34 @@ button{
     
     box-sizing: border-box;
     padding: 5px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     color:black;
     flex:1;
 
+}
+.negativeButton{
+    width:10vh;
+    background-color: aliceblue;
+    height: 10vh;
+    margin:4px;
+    text-align: center;
+    
+    box-sizing: border-box;
+    padding: 5px;
+    /* border: 2px solid red; */
+    color:black;
+    flex:1;
+}
+.decimalButton{
+    width:10vh;
+    background-color: aliceblue;
+    height: 10vh;
+    margin:4px;
+    text-align: center;
+    
+    box-sizing: border-box;
+    padding: 5px;
+    /* border: 2px solid red; */
+    color:black;
+    flex:1;
 }
